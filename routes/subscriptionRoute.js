@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Initialize Stripe with your secret key from .env
-const stripe = Stripe(sk_test_51QwFvuEOlUKfbOjhUeqB5HU7AYrXCm3U7AbkkEpyEyZsIiThBvjqMVtxb3lJPwvPzL6odc6EuarEpWymijuxmuuh00mQ4n13qt); // Securely load Stripe secret key
+const stripe = Stripe(process.env.sk_test_51QwFvuEOlUKfbOjhUeqB5HU7AYrXCm3U7AbkkEpyEyZsIiThBvjqMVtxb3lJPwvPzL6odc6EuarEpWymijuxmuuh00mQ4n13qt); // Securely load Stripe secret key
 
 // Route to handle subscription creation
 router.post('/create-subscription', async (req, res) => {
