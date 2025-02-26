@@ -7,7 +7,7 @@ const dotenv = require('dotenv');
 dotenv.config();
 
 // Initialize Stripe with your secret key from .env
-const stripe = Stripe(process.env.sk_test_51QwFvuEOlUKfbOjhUeqB5HU7AYrXCm3U7AbkkEpyEyZsIiThBvjqMVtxb3lJPwvPzL6odc6EuarEpWymijuxmuuh00mQ4n13qt); // Securely load Stripe secret key
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY); // Securely load Stripe secret key
 
 // Route to handle subscription creation
 router.post('/create-subscription', async (req, res) => {
@@ -29,11 +29,11 @@ router.post('/create-subscription', async (req, res) => {
     // Define the Stripe Price ID for each plan dynamically
     let priceId;
     if (plan === 'basic') {
-      priceId = price_1QwTfcEOlUKfbOjhfkAzDE7b; // Replace with actual price ID for basic plan
+      priceId = STRIPE_BASIC_PLAN_PRICE_ID; // Replace with actual price ID for basic plan
     } else if (plan === 'advanced') {
-      priceId = price_1QwTftEOlUKfbOjhiXujD1zb; // Replace with actual price ID for advanced plan
+      priceId = STRIPE_ADVANCED_PLAN_PRICE_ID; // Replace with actual price ID for advanced plan
     } else if (plan === 'pro') {
-      priceId = price_1QwTgDEOlUKfbOjhO2ClVqVV; // Replace with actual price ID for pro plan
+      priceId = STRIPE_PRO_PLAN_PRICE_ID; // Replace with actual price ID for pro plan
     } else {
       return res.status(400).send({ error: { message: "Invalid plan selected" } });
     }
